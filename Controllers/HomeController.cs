@@ -269,5 +269,13 @@ namespace Infinterest.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        
+        [HttpGet("fail")]
+        public IActionResult Fail()
+        {
+            return View("Fail");
+        }
     }
 }

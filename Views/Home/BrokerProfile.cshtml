@@ -85,9 +85,9 @@
         <div class="event-details">
           <div>
             <!--HAILEY TO UPDATE DB TO STORE EVENT TIME-->
-            <a href="event-detail/@pastEvent.EventId"><h6>@pastEvent.OpenHouseDateTime.ToString("dddd MMM dd, yyyy" + " h:mm tt")</h6></a>
+            <a href="/event-detail/@pastEvent.EventId"><h6>@pastEvent.OpenHouseDateTime.ToString("dddd MMM dd, yyyy" + " h:mm tt")</h6></a>
             <h6>Address: @pastEvent.Listing.Address.addressLine1, @pastEvent.Listing.Address.city, @pastEvent.Listing.Address.state</h6> 
-            <a href="broker-profile/@pastEvent.Listing.Broker.UserId"><h6>Broker: @pastEvent.Listing.Broker.FirstName @pastEvent.Listing.Broker.LastName</h6></a>
+            <a href="/broker-profile/@pastEvent.Listing.Broker.UserId"><h6>Broker: @pastEvent.Listing.Broker.FirstName @pastEvent.Listing.Broker.LastName</h6></a>
             <h6>Featured Home Area: @pastEvent.AreaOfHouse</h6>
             <!-- //confirmed vendors -->
           </div>
