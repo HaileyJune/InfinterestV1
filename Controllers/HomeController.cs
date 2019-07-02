@@ -270,7 +270,11 @@ namespace Infinterest.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
+        [HttpGet("browse")]
+        public IActionResult Browse()
+        {
+            return View("Browse");
+        }   
         
         [HttpGet("fail")]
         public IActionResult Fail()

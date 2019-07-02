@@ -1,0 +1,158 @@
+@{
+    ViewData["Title"] = "Browse";
+}
+
+@model BrowseView;
+
+@section css {
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="@Url.Content("~/css/dashboardstyle.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/nav.css")" rel="stylesheet" type="text/css" />
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<header>
+    <img src="../images/white-nosub-inflogo.png" alt="logo" class="white-logo">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li><a class="" href="vendor-registration">Vendor Sign Up</a></li>
+            <li><a class="" href="broker-registration">Broker Sign Up</a></li>
+            <li><a class="login text-white" href="#loginModal" data-toggle="modal">Log In</a></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
+</header>
+<div id="dashboardcontainer">
+    <div id="leftsection">
+        <img src="../images/coming-soon.png" alt="Coming Soon!" class="coming-soon" height="100" width="auto">
+        <div class="dashsearch">
+            <form action="">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Near:</label>
+                    <div class="col-sm-10" id="input">
+                        <input type="text" class="form-control" placeholder="Zip Code" disabled>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Radius:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="mi/km" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="price">Price Range</label>
+                    <div class="daterangecontainer">
+                        <input type="number" class="form-control daterange" min="10000" max="100000000" value="10000" disabled>
+                        <label>to</label>
+                        <input type="number" class="form-control daterange" min="10000" max="100000000" value="100000000" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="price">Date Range</label>
+                    <div class="daterangecontainer">
+                        <input type="date" class="form-control daterange" disabled>
+                        <label>to</label>
+                        <input type="date" class="form-control daterange" disabled>
+                    </div>
+                </div>
+                <!-- Button trigger modal -->
+                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModalLong" disabled>Search</button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Your search results</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-result">
+                                    <img src="../images/kitchen-1799712_960_720.jpg" alt="kitchenpic" >
+                                    <div>
+                                        <h4>42352 43rd Ave SE</h4>
+                                        <h4>Belletown, WA 90528</h4>
+                                        <h6>June 2, 2019</h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac est odio. Fusce lacus diam, elementum eget elit in, ultrices consectetur sapien. Aenean tincidunt hendrerit tempus.</p>
+                                        <a href="/event-detail"><h5>Details</h5></a>
+                                    </div>
+                                </div>
+                                <div class="modal-result">
+                                    <img src="../images/home2.jpg" alt="kitchenpic" class="respic">
+                                    <div>
+                                        <h4>44 Main St</h4>
+                                        <h4>Town Center, WA 90543</h4>
+                                        <h6>July 16, 2019</h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac est odio. Fusce lacus diam, elementum eget elit in, ultrices consectetur sapien. Aenean tincidunt hendrerit tempus.</p>
+                                        <a href="/event-detail"><h5>Details</h5></a>
+                                    </div>
+                                </div>
+                             
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="middlesection" class="vendor">
+      <h4>Upcoming Events</h4>
+        @{
+          foreach (Event eve in Model.UpcomingEvents)
+          {
+            <div class="allevents">
+              <div class="eventhead">
+                <a href="/event-detail/@eve.EventId"><h5>@eve.OpenHouseDateTime.ToString("dddd MMM dd, yyyy" + " h:mm tt")</h5></a>
+                @{
+                  foreach (Area ar in @eve.AreaOfHouse) 
+                  {
+                    <h5>Area of House Featured: @ar.area</h5>
+                  }
+                }
+              </div>
+              <div class="eventleft">
+                <img src="@eve.Listing.ImgUrl" alt="" height="100" width="100">
+              </div>
+              <div class="eventcenter"> 
+                <a href="broker-profile/@eve.Listing.Broker.UserId"><h6>Broker: @eve.Listing.Broker.FirstName @eve.Listing.Broker.LastName</h6></a>
+                <h6>Zip Code: @eve.Listing.Zip</h6>
+                <h6>Price: $@eve.Listing.Price.ToString("N0")</h6>
+                <a href="@eve.Listing.MLSLink"><h6>MLS Link</h6></a>
+              </div>
+            </div>
+          }    
+        }
+    </div>
+    <div id="rightsection">
+      <div class="confevents">
+        <h4>Past Events</h4>
+        @{
+          foreach (Event pastEvent in Model.PastEvents)
+          {
+            <div class="event-details">
+              <div>
+                <a href="/event-detail/@pastEvent.EventId"><h6>@pastEvent.OpenHouseDateTime.ToString("dddd MMM dd, yyyy" + " h:mm tt")</h6></a>
+                <h6>Address: @pastEvent.Listing.Address.addressLine1, @pastEvent.Listing.Address.city, @pastEvent.Listing.Address.state</h6> 
+                <a href="/broker-profile/@pastEvent.Listing.Broker.UserId"><h6>Broker: @pastEvent.Listing.Broker.FirstName @pastEvent.Listing.Broker.LastName</h6></a>
+                <h6>Featured Home Area: @pastEvent.AreaOfHouse</h6>
+                <!-- //confirmed vendors -->
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>     
+  </div>
+</div>

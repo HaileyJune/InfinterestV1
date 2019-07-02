@@ -8,7 +8,7 @@ namespace Infinterest.Models
 {
     public class BrowseView
     {
-        List<Event> UpcomingEvents {get;set;}
-        List<Event> PastEvents {get;set;}
+        public List<Event> UpcomingEvents {get;set;}
+        public List<Event> PastEvents {get;set;}
     }
 }
