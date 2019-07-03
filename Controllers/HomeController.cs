@@ -93,7 +93,7 @@ namespace Infinterest.Controllers
                     .FirstOrDefault();
                 if (thisVendor == null)
                 {
-                    return Redirect("/vendornotfound");
+                    return Redirect("/fail");
                 }
                 ViewModel.SelectedUser = thisVendor;
                 List<Event> ConfrimedEvents = thisVendor.Events
@@ -273,7 +273,29 @@ namespace Infinterest.Controllers
         [HttpGet("browse")]
         public IActionResult Browse()
         {
-            return View("Browse");
+            BrowseView viewModel = new BrowseView();
+
+            viewModel.UpcomingEvents = _context.events
+                                    .Include(eve => eve.Listing)
+                                        .ThenInclude(lis => lis.Address)
+                                    .Include (eve => eve.Broker)
+                                    .Include (eve => eve.EventVendors)
+                                        .ThenInclude(ev => ev.Vendor)
+                                    .Include (eve => eve.AreaOfHouse)
+                                    .Where (eve => eve.OpenHouseDateTime > DateTime.Now)
+                                    .Where (eve => eve.Confirmed == true)
+                                    .ToList();
+            viewModel.PastEvents = _context.events
+                                    .Include(eve => eve.Listing)
+                                        .ThenInclude(lis => lis.Address)
+                                    .Include (eve => eve.Broker)
+                                    .Include (eve => eve.EventVendors)
+                                        .ThenInclude(ev => ev.Vendor)
+                                    .Include (eve => eve.AreaOfHouse)
+                                    .Where (eve => eve.OpenHouseDateTime < DateTime.Now)
+                                    .Where (eve => eve.Confirmed == true)
+                                    .ToList();
+            return View(viewModel);
         }   
         
         [HttpGet("fail")]

@@ -125,7 +125,7 @@ namespace Infinterest.Controllers
                     }
                     if(thisListing.BrokerId != user.UserId)
                     {
-                        return Redirect("/notrightuser");
+                        return Redirect("/fail");
                     }
 
                     Event NewEvent = new Event(Input, user, thisListing);
@@ -161,7 +161,7 @@ namespace Infinterest.Controllers
                 if(user == null)
                 {
                     //fake code
-                    return Redirect("/notsignedin");
+                    return Redirect("/fail");
                 }
 
                 //Add address to db
@@ -264,7 +264,7 @@ namespace Infinterest.Controllers
                 .FirstOrDefault();
             if(user == null)
             {
-                return Redirect("/notsignedin");
+                return Redirect("/fail");
             }   
 
             if(Int32.TryParse(EventId, out int id))
@@ -281,7 +281,7 @@ namespace Infinterest.Controllers
 
                     if(Request == null)
                     {
-                        return Redirect("/what");
+                        return Redirect("/fail");
                     }
                     
                     if(Request.Event.Broker == user)
@@ -305,7 +305,7 @@ namespace Infinterest.Controllers
                 .FirstOrDefault();
             if(user == null)
             {
-                return Redirect("/notsignedin");
+                return Redirect("/fail");
             }   
 
             if(Int32.TryParse(EventId, out int id))
@@ -323,7 +323,7 @@ namespace Infinterest.Controllers
 
                     if(Request == null)
                     {
-                        return Redirect("/what");
+                        return Redirect("/fail");
                     }
                     
                     if(Request.Event.Broker == user)
