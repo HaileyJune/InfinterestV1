@@ -37,7 +37,7 @@ namespace Infinterest.Controllers
                 .FirstOrDefault();
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
             ViewModel.CurrentUser = user;
             if(Int32.TryParse(id, out int userid))
@@ -80,7 +80,7 @@ namespace Infinterest.Controllers
                 .FirstOrDefault();
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
             ViewModel.CurrentUser = user;
             if(Int32.TryParse(id, out int userid))
@@ -122,7 +122,7 @@ namespace Infinterest.Controllers
 
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
             
             if(Int32.TryParse(eventId, out int id))
@@ -162,7 +162,7 @@ namespace Infinterest.Controllers
 
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
 
             if(Int32.TryParse(listingId, out int id))

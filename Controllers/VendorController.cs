@@ -38,7 +38,7 @@ namespace Infinterest.Controllers
             
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
 
             DashboardVendorView viewModel = new DashboardVendorView();
@@ -114,7 +114,7 @@ namespace Infinterest.Controllers
             
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
 
             user.AreaOfHouse = UserInput.AreaOfHouse;
@@ -135,7 +135,7 @@ namespace Infinterest.Controllers
             
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
 
             if(Int32.TryParse(eventId, out int id))

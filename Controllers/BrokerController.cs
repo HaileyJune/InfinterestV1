@@ -69,7 +69,7 @@ namespace Infinterest.Controllers
 
             if (user == null)
             {
-                return Redirect("/");
+                return Redirect("/fail");
             }
 
             DashboardBrokerView DisplayModel = new DashboardBrokerView();
@@ -121,7 +121,7 @@ namespace Infinterest.Controllers
 
                     if(user == null)
                     {
-                        return Redirect("/");
+                        return Redirect("/fail");
                     }
                     if(thisListing.BrokerId != user.UserId)
                     {
@@ -160,7 +160,6 @@ namespace Infinterest.Controllers
                     .FirstOrDefault();
                 if(user == null)
                 {
-                    //fake code
                     return Redirect("/fail");
                 }
 
