@@ -72,7 +72,7 @@ namespace Infinterest.Controllers
         
 
         [HttpPost("vendor-registration")]
-        public IActionResult CreateVendor(User UserInput)
+        public IActionResult CreateVendor(UserProfile UserInput)
         {
             if (ModelState.IsValid)
             {

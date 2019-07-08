@@ -47,25 +47,5 @@ public class User : BaseEntity
         [Required(ErrorMessage = "Please Confirm Password")]
         [Compare(nameof(Password), ErrorMessage = "Your passwords need to match")]        
         public string PasswordConfirm { get; set; }
-            // soon to be required
-        [Required(ErrorMessage = "Please Add Image")]
-        // [RegularExpression("^(https?:)?//?[^\'\"<>]+?.(jpg|jpeg|gif|png)$", ErrorMessage = "Right-click on an image online and select 'Copy Image Address' and paste it here")]
-        [DataType(DataType.Text)]
-        public string ImgUrl { get; set; }
-        [DataType(DataType.Text)]
-        [Required(ErrorMessage = "Please Add Contact Information")]
-
-        public string Contact {get; set;}
-        [DataType(DataType.Text)]
-
-        public string Bio {get; set;}
-        [DataType(DataType.Text)]
-        [Required(ErrorMessage = "Please Add Company Name")]
-
-        public string Company { get; set; }
-        [DataType(DataType.Text)]
-
-        public string Website { get; set; }
-
     }   
 }

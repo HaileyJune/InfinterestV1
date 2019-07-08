@@ -27,7 +27,7 @@ namespace Infinterest.Controllers
         }
 
         [HttpPost("broker-registration")]
-        public IActionResult DoesBrokerRegistration(User UserInput)
+        public IActionResult DoesBrokerRegistration(UserProfile UserInput)
         {
             if(ModelState.IsValid)
             {

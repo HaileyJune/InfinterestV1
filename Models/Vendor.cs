@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infinterest.Models
 {
-public class Vendor : User
+public class Vendor : UserProfile
     {
         public List<Area> AreaOfHouse {get; set;}
         public List<Business> BusinessCategory {get; set;}
@@ -18,7 +18,7 @@ public class Vendor : User
 
         }
 
-        public Vendor(User input)
+        public Vendor(UserProfile input)
         {
             UserType = "Vendor";
             FirstName = input.FirstName;
