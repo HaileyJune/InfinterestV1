@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -47,5 +48,15 @@ public class User : BaseEntity
         [Required(ErrorMessage = "Please Confirm Password")]
         [Compare(nameof(Password), ErrorMessage = "Your passwords need to match")]        
         public string PasswordConfirm { get; set; }
+
+        public User()
+        {}
+
+        public User(User input)
+        {
+            UserType = "Buyer";
+            PasswordHasher<User> Hasher = new PasswordHasher<User>();
+            Password = Hasher.HashPassword(this, input.Password);
+        }
     }   
 }

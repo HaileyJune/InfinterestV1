@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Broker Registration";
+}
+
+@model User
+
+@section css {
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="@Url.Content("~/css/registrationstyle.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/nav.css")" rel="stylesheet" type="text/css" />
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<header>
+<img src="../images/white-nosub-inflogo.png" alt="logo" class="white-logo">
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+<nav>
+    <ul>
+        <li><a class="" href="vendor-registration">Vendor Sign Up</a></li>
+        <li><a class="" href="broker-registration">Broker Sign Up</a></li>
+        <li><a class="login text-white" href="#loginModal" data-toggle="modal">Log In</a></li>
+    </ul>
+</nav>
+<label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+</label>
+</header>
+<div id="container"> 
+    <div class="regbox">
+        <h4>User Registration</h4>
+        <form class="" role="form" action="/broker-registration" method="POST">
+            <div class="wrapper">
+                <div class="box1">
+                    <div class="form-group">
+                        <p><span asp-validation-for="FirstName"></span></p>
+                        <label asp-for="FirstName">First name</label>
+                        <input asp-for="FirstName" class="form-control" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group">
+                        <p><span asp-validation-for="LastName"></span></p>
+                        <label asp-for="LastName">Last name</label>
+                        <input asp-for="LastName" class="form-control" placeholder="Enter last name">
+                    </div>
+                    <div class="form-group">
+                        <p><span asp-validation-for="Email"></span></p>
+                        <label for="Email">Email</label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <p><span asp-validation-for="Password"></span></p>
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" class="form-control" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <p><span asp-validation-for="PasswordConfirm"></span></p>
+                        <label asp-for="PasswordConfirm">Confirm password</label>
+                        <input asp-for="PasswordConfirm" class="form-control" placeholder="Confirm password">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save and continue</button>
+        </form>
+    </div>      
+</div>
+<div id="loginModal" class="modal fade" role="form">
+    <div class="modal-dialog">
+        <!-- Login Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" action="/dashboard" method="get">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="usrname">Username</label>
+                        <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="psw">Password</label>
+                        <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                    </div>
+                        <div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+</div>

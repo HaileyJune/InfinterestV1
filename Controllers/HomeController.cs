@@ -303,5 +303,39 @@ namespace Infinterest.Controllers
         {
             return View("Fail");
         }
+
+        [HttpGet("user-registration")]
+        public IActionResult UserRegistration()
+        {
+            return View("UserRegistration");
+        }
+
+        [HttpPost("user-registration")]
+        public IActionResult DoesUserRegistration(User UserInput)
+        {
+            if(ModelState.IsValid)
+            {
+                if(_context.users.Any(u => u.Email == UserInput.Email))
+                {
+                    ModelState.AddModelError("Email", "Email already in use");
+                    return View("UserRegistration");
+                }
+                else
+                {
+                    User NewBroker = new User(UserInput);
+                    
+                    _context.users.Add(NewBroker);
+                    
+                    _context.SaveChanges();
+                    HttpContext.Session.SetInt32("userid", NewBroker.UserId);
+
+                    return RedirectToAction("browse");
+                }
+            }
+            else
+            {
+                return View("UserRegistration");
+            }
+        }
     }
 }
