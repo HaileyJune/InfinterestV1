@@ -49,6 +49,7 @@ public class User : BaseEntity
         public string PasswordConfirm { get; set; }
             // soon to be required
         [Required(ErrorMessage = "Please Add Image")]
+        // [RegularExpression("^(https?:)?//?[^\'\"<>]+?.(jpg|jpeg|gif|png)$", ErrorMessage = "Right-click on an image online and select 'Copy Image Address' and paste it here")]
         [DataType(DataType.Text)]
         public string ImgUrl { get; set; }
         [DataType(DataType.Text)]
