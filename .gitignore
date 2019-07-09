@@ -3,7 +3,7 @@
 project.lock.json
 .DS_Store
 *.pyc
-appsettings.json
+# appsettings.json
 *.sln
 
 # Visual Studio Code
