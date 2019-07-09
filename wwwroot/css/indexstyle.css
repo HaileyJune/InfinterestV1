@@ -26,8 +26,8 @@ body{
 }
 
 .coming-soon {
-    position: absolute;
-    margin: 2.5% 8.35%;
+    position: fixed;
+    margin: 2.5% 8.3%;
 }
 
 #secondarycontainer .result {
@@ -183,24 +183,91 @@ body{
     text-align: center;
 }
 
-@media (max-width : 479px) {
+@media screen and (max-width : 575px) {
+    #homecontainer .searchbox {
+        margin: 10% 5% !important;
+        width: auto !important;
+    }
+
     #homecontainer .daterange {
         width: 100%;
     }
     #homecontainer .whereinput {
         width: 100%;
     }
-}
 
-@media (min-width : 480px) and (max-width : 767px) {
-    #homecontainer .form-control {
-        font-size: 14px;
+    .container.wrapper {
+        padding-top: 4%;
+    }
+
+    .coming-soon {
+        margin-top: 10%;
+        margin-left: 5%;
     }
 }
 
-@media (max-width : 768px) {
+@media screen and (min-width : 576px) and (max-width : 618px) {
     #homecontainer .searchbox {
         margin: 10% 5% !important;
         width: auto !important;
     }
+    
+    #homecontainer .form-control {
+        font-size: 14px;
+    }
+
+    .container.wrapper {
+        padding-top: 3%;
+    }
+
+    .coming-soon {
+        margin-top: 9%;
+        margin-left: 4.5%;
+    }
 }
+
+@media screen and (min-width : 619px) and (max-width : 663px) {
+    #homecontainer .searchbox {
+        margin: 10% 5% !important;
+        width: auto !important;
+    }
+    
+    #homecontainer .form-control {
+        font-size: 14px;
+    }
+
+    .container.wrapper {
+        padding-top: 3%;
+    }
+
+    .coming-soon {
+        margin-top: 8.5%;
+        margin-left: 4%;
+    }
+}
+
+@media screen and (min-width : 664px) and (max-width : 770px) {
+    #homecontainer .searchbox {
+        margin: 10% 5% !important;
+        width: auto !important;
+    }
+    
+    #homecontainer .form-control {
+        font-size: 14px;
+    }
+
+    .container.wrapper {
+        padding-top: 3%;
+    }
+
+    .coming-soon {
+        margin-top: 8%;
+        margin-left: 4%;
+    }
+}
+/* @media screen and (max-width : 768px) {
+    #homecontainer .searchbox {
+        margin: 10% 5% !important;
+        width: auto !important;
+    }
+} */

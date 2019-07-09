@@ -133,6 +133,29 @@ span.field-validation-error {
     color: whitesmoke;
 }
 
+@media screen and (max-width : 575px) {
+    .regbox {
+        margin: 3% 25%;
+    }
+}
+
+@media screen and (min-width : 576px) {
+    #homecontainer .form-control {
+        font-size: 14px;
+    }
+
+    .container.wrapper {
+        padding-top: 3%;
+    }
+
+    .coming-soon {
+        margin-top: 10%;
+    }
+
+    .regbox {
+        margin: 5% 25%;
+    }
+}
 /* .modal h4 {
     color: whitesmoke;
     font-weight: bold;
