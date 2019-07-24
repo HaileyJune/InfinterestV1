@@ -337,5 +337,11 @@ namespace Infinterest.Controllers
                 return View("UserRegistration");
             }
         }
+
+        [HttpGet("about")]
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }

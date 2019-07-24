@@ -22,10 +22,16 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>
         <ul>
+            <li><a class="" href="about">About</a></li>
             <li><a class="" href="browse">Browse Events</a></li>
-            <li><a class="" href="vendor-registration">Vendor Sign Up</a></li>
-            <li><a class="" href="broker-registration">Broker Sign Up</a></li>
-            <li><a class="" href="user-registration">Buyer Sign Up</a></li>
+            <div class="dropdown show">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="vendor-registration">Vendor Sign Up</a>
+                <a class="dropdown-item" href="broker-registration">Broker Sign Up</a>
+                <a class="dropdown-item" href="user-registration">Buyer Sign Up</a>
+            </div>
+            </div>
             <li><a class="login text-white" href="#loginModal" data-toggle="modal">Log In</a></li>
         </ul>
     </nav>
