@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "About Page";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+@model User
+@section css {
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="@Url.Content("~/css/indexstyle.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/nav.css")" rel="stylesheet" type="text/css" />
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<header>
+    <img src="../images/white-nosub-inflogo.png" alt="logo" class="white-logo">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+        <ul>
+            <li><a class="" href="dashboard">Home</a></li>
+            <li><a class="" href="browse">Browse Events</a></li>
+            <li><div class="dropdown show">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="vendor-registration">Vendor Sign Up</a>
+                <a class="dropdown-item" href="broker-registration">Broker Sign Up</a>
+                <a class="dropdown-item" href="user-registration">Buyer Sign Up</a>
+            </div>
+            </div>
+            </li>
+            <li><a class="login text-white" href="#loginModal" data-toggle="modal">Log In</a></li>
+        </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
+</header>
+<div id="homecontainer">
+    
+</div>
+<div id="loginModal" class="modal fade" role="form">
+    <div class="modal-dialog">
+        <!-- Login Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" action="/existing-user" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <span asp-validation-for="Email"></span>
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <span asp-validation-for="Password"></span>
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" class="form-control" placeholder="Enter password">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
