@@ -10,7 +10,7 @@ namespace Infinterest.Models
     {
         public User CurrentUser {get;set;}
 
-        public User SelectedUser {get;set;}
+        public UserProfile SelectedUser {get;set;}
 
         public List<Event> UpcomingEvents {get;set;}
         public List<Event> PastEvents {get;set;}

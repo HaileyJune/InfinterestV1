@@ -2,7 +2,7 @@
     ViewData["Title"] = "Broker Registration";
 }
 
-@model UserProfile
+@model User
 
 @section css {
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -15,22 +15,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <header>
-    <a href="/"><img src="../images/white-nosub-inflogo.png" alt="logo" class="white-logo"></a>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <nav>
-        <ul>
-            <li><a href="/dashboard">Home</a></li>
-            <li><a class="" href="vendor-registration">Vendor Sign Up</a></li>
-            <li><a class="login text-white" href="#loginModal" data-toggle="modal">Log In</a></li>
-        </ul>
-    </nav>
-    <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-    </label>
+<img src="../images/white-nosub-inflogo.png" alt="logo" class="white-logo">
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+<nav>
+    <ul>
+        <li><a class="" href="vendor-registration">Vendor Sign Up</a></li>
+        <li><a class="" href="broker-registration">Broker Sign Up</a></li>
+        <li><a class="login text-white" href="#loginModal" data-toggle="modal">Log In</a></li>
+    </ul>
+</nav>
+<label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+</label>
 </header>
 <div id="container"> 
     <div class="regbox">
-        <h4>Broker Registration</h4>
+        <h4>User Registration</h4>
         <form class="" role="form" action="/broker-registration" method="POST">
             <div class="wrapper">
                 <div class="box1">
@@ -59,33 +59,6 @@
                         <label asp-for="PasswordConfirm">Confirm password</label>
                         <input asp-for="PasswordConfirm" class="form-control" placeholder="Confirm password">
                     </div>
-                </div>
-                <div class="box2">  
-                    <div class="form-group">
-                        <p><span asp-validation-for="Company"></span></p>
-                        <label for="Company">Company</label>
-                        <input asp-for="Company" class="form-control" placeholder="Enter company name">
-                    </div> 
-                    <div class="form-group">
-                        <p><span asp-validation-for="Website"></span></p>
-                        <label for="Website">Your website</label>
-                        <input asp-for="Website" class="form-control" placeholder="Enter website">
-                    </div>
-                    <div class="form-group">
-                        <p><span asp-validation-for="Contact"></span></p>
-                        <label for="Contact">Phone number</label>
-                        <input asp-for="Contact" class="form-control" placeholder="Enter phone number">
-                    </div> 
-                    <div class="form-group">
-                        <p><span asp-validation-for="Bio"></span></p>
-                        <label for="Bio">Your bio</label>
-                        <textarea asp-for="Bio" class="form-control" placeholder="Enter bio" rows="3"></textarea>
-                    </div>   
-                    <div class="form-group">
-                        <p><span asp-validation-for="ImgUrl"></span></p>
-                        <label for="ImgUrl">Image</label>
-                        <input asp-for="ImgUrl" class="form-control" placeholder="Add an Image Url">
-                    </div>        
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Save and continue</button>

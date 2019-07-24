@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infinterest.Models
 {
-public class Broker : User
+public class Broker : UserProfile
     {
         public List<Listing> Listings {get; set;}
         public List<Event> Events {get; set;}
@@ -22,7 +22,7 @@ public class Broker : User
             Events = new List<Event>();
         }
 
-        public Broker(User input)
+        public Broker(UserProfile input)
         {
             UserType = "Broker";
             FirstName = input.FirstName;
